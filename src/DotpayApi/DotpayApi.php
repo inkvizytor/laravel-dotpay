@@ -26,7 +26,9 @@ class DotpayApi
 
     public function getPaymentUrl($payment)
     {
-        switch ($this->config['api_version'])
+        $apiVersion = isset($this->config['api_version']) ? $this->config['api_version'] : 'dev';
+
+        switch ($apiVersion)
         {
             case 'dev':
             default:
