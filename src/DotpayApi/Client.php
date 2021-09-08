@@ -27,7 +27,7 @@ class Client
                 $this->password
             ],
             'headers' => ['content-type' => 'application/json', 'Accept' => 'application/json'],
-            'json' => json_encode($request->toArray(), 320)
+            'json' => $request->toArray()
         ];
         return json_decode($this->client->request($request->method(),$this->base_url.$request->path(), $options)->getBody());
     }
