@@ -13,6 +13,11 @@ class AbstractRequest
 
     public function toArray()
     {
-        return get_object_vars($this);
+        $array = get_object_vars($this);
+        
+        //Usuwamy shop_id po zaleceniach od DotPay
+        unset($array['shop_id']);
+        
+        return $array;
     }
 }
