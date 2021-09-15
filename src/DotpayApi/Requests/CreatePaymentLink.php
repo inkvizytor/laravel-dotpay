@@ -7,12 +7,13 @@ use Evilnet\Dotpay\DotpayApi\Contracts\IRequest;
 class CreatePaymentLink extends AbstractRequest implements IRequest
 {
     protected $amount;
+    protected $channel = 1;
     protected $currency;
     protected $description;
     protected $control;
     protected $language;
     protected $onlinetransfer = 1;
-    protected $ch_lock = 1;
+    protected $ch_lock = 0;
     protected $redirection_type = 0;
     protected $buttontext = 'Return';
     protected $url;
