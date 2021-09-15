@@ -40,4 +40,14 @@ class CreatePaymentLink extends AbstractRequest implements IRequest
         return 'api/v1/accounts/'.$this->shop_id.'/payment_links/';
     }
 
+    public function toArray()
+    {
+        $array =  parent::toArray();
+
+        //If channel is <= 0 then we remove it
+        if ($this->channel <= 0)
+            unset($array['channel']);
+
+        return $array;
+    }
 }
